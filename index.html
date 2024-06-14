@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Venice Journey</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a1b0b5d036.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <style>
+    .poppins-light {
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    .poppins-regular {
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .poppins-medium {
+      font-family: "Poppins", sans-serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .poppins-semibold {
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    .poppins-bold {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    .poppins-medium-italic {
+      font-family: "Poppins", sans-serif;
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    * {
+      font-family: "Poppins", sans-serif;
+    }
+
+    .btn:not(:first-child) {
+      border-radius: 10px !important;
+      background-color: #000000 !important;
+      border: none !important;
+      outline: none !important;
+      padding: 0.8rem 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: rgb(88, 174, 255) !important;
+    }
+
+    section .home-div {
+      z-index: 99;
+      background-image: url("https://wallpapercave.com/wp/wp4107369.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .navbar {
+      background-color: black;
+    }
+
+    .home-content-container {
+      width: 50%;
+    }
+
+    .home-content {
+      margin: 10rem auto;
+      padding: 1.5rem 3rem;
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    .home-content p {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    ul.navbar-nav {
+      gap: 0.5rem;
+    }
+
+    h1 {
+      font-size: 75px;
+      font-weight: 700;
+    }
+
+    .card-section {
+      margin-top: 5rem;
+    }
+
+    .card {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 10px 2px rgb(152, 205, 255);
+      cursor: pointer;
+    }
+
+    .card-img-top {
+      border-radius: 30px;
+      padding: 1rem;
+      height: auto;
+      max-height: 185px;
+    }
+
+    .card-body {
+      text-align: center;
+    }
+
+    .card-title {
+      margin-bottom: 1rem;
+    }
+
+    .card-text {
+      color: #9b9a9a;
+    }
+
+    .wave-container {
+      position: relative;
+      width: 100%;
+      height: 100px;
+      overflow: hidden;
+    }
+
+    .wave {
+      position: absolute;
+      bottom: 0;
+      width: 200%;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.5);
+      opacity: 0.8;
+      border-radius: 20%;
+      animation: wave-animation 6s infinite linear;
+    }
+
+    .wave1 {
+      animation-duration: 5s;
+      background: rgb(51, 231, 255);
+    }
+
+    .wave2 {
+      animation-duration: 4s;
+      background: rgb(40, 212, 255);
+    }
+
+    .wave3 {
+      animation-duration: 4s;
+      background: rgb(0, 195, 255);
+    }
+
+    @keyframes wave-animation {
+      0% {
+        transform: translateX(0) translateY(25px);
+      }
+      50% {
+        transform: translateX(-15%) translateY(35px);
+      }
+      100% {
+        transform: translateX(-20%) translateY(40%);
+      }
+    }
+
+    .gemi-container {
+      text-align: center;
+    }
+
+    .g {
+      animation: boat-animation 10s infinite linear;
+    }
+
+    .g1 {
+      animation-duration: 6s;
+    }
+
+    .g2 {
+      animation-duration: 6s;
+      margin-left: 200px;
+      margin-right: 200px;
+    }
+
+    .g3 {
+      animation-duration: 6s;
+    }
+
+    @keyframes boat-animation {
+      0% {
+        transform: translateX(0) translateY(0);
+      }
+      50% {
+        transform: translateX(30%) translateY(8px);
+      }
+      100% {
+        transform: translateX(0) translateY(0);
+      }
+    }
+
+    .ticket {
+      margin: 0 auto 1rem;
+      max-width: 1000px;
+      max-height: 259px;
+      display: flex;
+      margin-bottom: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .ticket:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .ticket img {
+      width: 40%;
+      object-fit: cover;
+    }
+    .ticket-content {
+      background-color: #e2dfd2;
+      padding: 20px;
+      width: 60%;
+    }
+    .ticket-title {
+      font-size: 24px;
+      margin: 0 0 10px;
+    }
+    .ticket-text {
+      margin: 0 0 15px;
+      color: #555;
+    }
+    .ticket-price {
+      font-size: 20px;
+      color: #565656;
+      margin-bottom: 15px;
+    }
+    .ticket-button {
+      background-color: #000000;
+      color: white;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+
+    .ticket-button:hover {
+      background-color: rgb(88, 174, 255);
+    }
+
+    .feedback-section {
+      margin-top: 5rem;
+      margin-bottom: 7rem;
+    }
+
+    .feedback-container {
+      margin: 20px auto;
+      max-width: 1200px;
+    }
+    .feedback-card {
+      margin-bottom: 20px;
+    }
+    .feedback-text {
+      font-size: 16px;
+      color: #555;
+    }
+    .feedback-author {
+      font-size: 14px;
+      color: #999;
+      margin-left: 10px;
+    }
+    .feedback-rating {
+      color: #ffd700;
+      margin-left: auto;
+    }
+
+    .feedback-title {
+      display: flex;
+      align-items: center;
+      padding: 0 0.5rem;
+      margin-bottom: 15px;
+    }
+
+    .feedback-title p {
+      margin-bottom: 0;
+    }
+
+    .social-medias {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    i.fa-brands {
+      background: white;
+      color: black;
+      padding: 0.6rem;
+      border-radius: 50px;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 21px;
+    }
+
+    i.fa-brands:hover {
+      background-color: #000000;
+      color: #fff;
+    }
+
+    .txt-white {
+      color: #fff;
+    }
+
+    .copyright {
+      text-align: center;
+      color: #fff;
+    }
+
+    .btn-nav {
+      background-color: rgb(88, 174, 255);
+      padding: 0.5rem 0.8rem;
+      border: none;
+      transition: background-color 0.2s ease;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    .btn-nav:hover {
+      background-color: #fff !important;
+      color: black;
+    }
+
+    /* Media Query */
+    @media screen and (max-width: 325px) {
+      .social-medias {
+        gap: 1rem;
+      }
+    }
+
+    @media screen and (max-width: 475px) {
+      .home-content-container {
+        width: 100%;
+      }
+
+      .home-content {
+        width: 100%;
+        margin-top: 7rem;
+        margin-bottom: 1rem;
+        padding: 1rem;
+      }
+
+      .home-content h1 {
+        font-size: 65px;
+      }
+
+      .g2 {
+        margin-right: 70px;
+        margin-left: 70px;
+      }
+
+      #card-page .card .card-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        max-height: 8em;
+      }
+
+      .ticket-content {
+        padding: 10px;
+        text-align: center;
+      }
+
+      .ticket-text {
+        display: none;
+      }
+
+      .ticket-title {
+        font-size: 20px;
+      }
+
+      .feedback-section {
+        margin: 3rem 0;
+      }
+    }
+
+    @media screen and (max-width: 1023px) and (min-width: 476px) {
+      .home-content-container {
+        width: 100%;
+      }
+
+      .home-content {
+        margin: 6rem auto;
+      }
+
+      .ticket-price {
+        display: inline;
+        margin-right: 0.5rem;
+      }
+
+      .feedback-card .card-body {
+        height: 245px;
+      }
+    }
+
+    @media screen and (min-width: 1024px) and (max-width: 1400px) {
+      #card-page .row {
+        gap: 0.5rem !important;
+      }
+
+      #card-page.card-section .card {
+        width: 14rem !important;
+      }
+
+      #card-page .card .card-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        max-height: 8.6em;
+      }
+
+      .g2 {
+        margin: 0 100px;
+      }
+    }
+
+    @media screen and (max-width: 1000px) {
+      .navbar {
+        text-align: center;
+      }
+    }
+  </style>
+  <body>
+    <nav class="fixed-top navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEa0lEQVR4nO2ae6gVVRTG56QVt4e3mxpZRio3KK00Ku1JUmZpRnmzUpQeUolJiUaYPehBZVD2ACv/KMGksughvcT+6UV/9MSIgiIjUaRCu2RUpOUvPs8njNM5Z2b2zLl54H5wuYdh77XX2nvNWt9ae6KoF71IBbAXcLB/DwgV0g6cCvQBxqWMHQw8A9wWtFh9ufsBLwMnAfeGCukL3AVcBkxIGfsEcALwKDA6VPE6ss8EpgNDQgXoJBYCU4GzU8bOBJ4F3gMOCVW6htz9gbvlVsAtoUIOAs4C9k47EY/vBDqCFutFD8NuepNe3qiVAZxIFW8Ac4HxPa3A4cBKYBFQCZQxCfiY3fFIgJzxoTpo8lPAscCdwIWx55kjE/A6/8XgAF06gQPy+rNCaRvwgHdCcXxmXLkc8irAkwlDZgUaMjXvpMneSWXUj4AvHY77OrfcmlOe8sxWYAZwvZJnAMvYFzgGWAqM9fN9gCsauhwwyju51Mq/CrwF3CgOlFMRLTgoz5w4gDXAb8B6n+gCuXrcS/ZIUN39LmAKcBUwL+GanwBHRa0Equ/YkhoBY11RwbncqiiADuDvhBGLg0lkTPBzimylaZptzcOAocDbwO+qUZRYiwhU5OoWmSxV0/R1BwI3OHrtZOLASOCM3JsK9ANW+Wi/VVxvluJJAMdr/RrPdUrtUY4IInf6KeGnOuLViu1RkwFcUJYgHem0mDHbgDvExRrMGQSsAO7v6QCRCtfwiiALMox9CDgNuAc4J9rTQJXJ9ssw7lLgJZe/qSQRuM4UaFaPnKD4V46xRyrSZRw7DrhcLhy1MsznTnEnptKMwmpZqULrrzUyFmordaLn0CINss2l71CYLtNU6BUR8LVq7lK1CtPjadUeRQR8AfwMjClVs3w6jAW2AEcXEaKCRtjunNBWqpaN125z4+Mf6xC+mTWoySa3dNpzyDgZuCjH+ANdBf6YWHt4EUNU4taCuNZy4BItnCLjQ89ZWS+ZWnk1zJ93fZ/E5kLlA3Ae6RD3+sxdeTUXzpc/q23k3vHpwEaP/c4nVHEZq5f4c8tohEXBRsSMEdUogiW+Q1GnUfgLmO+uyNoM83/IQouy1iIq+ItgrU9pvg3BhsnAxxvM+0VJsrARCSr/ZkFjFAGvtGut87ONvr7ostJxaMyI0oyIGVMxq91Q0KAXgSNcsOHSQLdjQ4APHOofy9UiDTBmuN3jeyepUHzjJqDo+x9+9o4Zc2ezlFfX4mbv2pRdlaE7iBc7rCbzTRb8CVzrRvlXfiYWMbEZRkjZh7MkQJ/WdBu8wjX9+8Cn/v+ab38Xu2d7nIqpGEFV91/YATyo0B2TPbfQ/aTvuhsmvCaw3F9tULdf+C7X/gPKWuRcd+r7lyKw8RXCpoQbvlDa1Z2j1ghgtj4OiP2purtavu3G2TBHoI48N71qvgG3W+a7Nd6pV0oxJMXAQ/3RwCSH6BmOSHNMAHP5N9VN0FcPcXRHrQrgmhiJvC9qZVBlFcP+bz16EQXgXzAafFLDH8LFAAAAAElFTkSuQmCC"
+        />
+        <a class="navbar-brand" href="#">Venice Journey</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto d-flex justify-content-around">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Ana Sayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#card-page">Lokasyonlar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#ticket-page">Biletler</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact-page">İletişim</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary btn-nav" href="#ticket-page"
+                >Hemen Başla</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="d-flex">
+      <div class="home-content-container bg-dark">
+        <div class="home-content text-center">
+          <h1>Venedik</h1>
+          <p class="mt-3 fs-5">
+            Tarihle dolu, turistlerin en çok ziyaret ettiği yerlerden biri olan
+            İtalya'nın incisi Venedik'te unutulmaz bir tatil yapmaya ne
+            dersiniz? Eğer cevabınız evet ise, hemen aşağıdaki butona tıklayın!
+          </p>
+          <button class="btn btn-primary">Hemen Başla!</button>
+        </div>
+
+        <div class="wave-container">
+          <div class="gemi-container">
+            <img
+              class="g g1"
+              width="48"
+              height="48"
+              src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/48/external-Boat-travel-and-tourism-those-icons-lineal-color-those-icons.png"
+              alt="external-Boat-travel-and-tourism-those-icons-lineal-color-those-icons"
+            />
+
+            <img
+              class="g g2"
+              width="48"
+              height="48"
+              src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/48/external-Boat-travel-and-tourism-those-icons-lineal-color-those-icons.png"
+              alt="external-Boat-travel-and-tourism-those-icons-lineal-color-those-icons"
+            />
+
+            <img
+              class="g g3"
+              width="48"
+              height="48"
+              src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/48/external-Boat-travel-and-tourism-those-icons-lineal-color-those-icons.png"
+              alt="external-Boat-travel-and-tourism-those-icons-lineal-color-those-icons"
+            />
+          </div>
+          <div class="wave wave1"></div>
+          <div class="wave wave2"></div>
+          <div class="wave wave3"></div>
+        </div>
+      </div>
+      <div class="home-div w-50 d-none d-lg-block">
+        <div class="container"></div>
+      </div>
+    </section>
+
+    <section id="card-page" class="card-section mb-5 mt-5">
+      <h2 class="text-center mb-4 fs-1">Lokasyonlar</h2>
+      <div class="container">
+        <div class="row justify-content-center" style="gap: 1.5rem">
+          <div class="card col-10 col-lg-3" style="width: 18rem">
+            <img
+              class="card-img-top"
+              src="https://blog.obilet.com/wp-content/uploads/2018/04/Murano-adasi-696x478.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Murano Adası</h5>
+              <p class="card-text">
+                İtalya’nın ünlü cam adası Murano, aynı isimle bilinen murano
+                camının doğduğu yer. Murano camının yapılış sürecine tanık
+                olabileceğiniz adada yine murano camından yapılan birçok
+                hediyelik eşyayı da alabilmeniz mümkün.
+              </p>
+              <a href="#" class="btn btn-primary">Bilet Al!</a>
+            </div>
+          </div>
+          <div class="card col-10 col-lg-3" style="width: 18rem">
+            <img
+              class="card-img-top"
+              src="https://blog.obilet.com/wp-content/uploads/2018/04/san-marco-meydan%C4%B1-696x464.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title">San Marco</h5>
+              <p class="card-text">
+                Venedik'in kalbinde yer alan San Marco Meydanı şehirdeki en ünlü
+                ve önemli tarihi meydanlardan biri. Meydan aynı zamanda
+                Venedik’in merkezi ve politik gücünün de bir göstergesi olarak
+                biliniyor.
+              </p>
+              <a href="#" class="btn btn-primary">Bilet Al!</a>
+            </div>
+          </div>
+          <div class="card col-10 col-lg-3" style="width: 18rem">
+            <img
+              class="card-img-top"
+              src="https://blog.obilet.com/wp-content/uploads/2018/04/Rialto-ko%CC%88pru%CC%88su%CC%88-1-696x464.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Rialto Köprüsü</h5>
+              <p class="card-text">
+                Rialto Köprüsü, Grand Canal'ın üzerinde yer aldığı için muhteşem
+                bir kanal manzarasına sahip olup Venedik'in güzelliklerini su
+                üzerinden gözlemlemek isteyenler için popüler mekanlar arasında
+                yer alıyor.
+              </p>
+              <a href="#" class="btn btn-primary">Bilet Al!</a>
+            </div>
+          </div>
+          <div class="card col-10 col-lg-3" style="width: 18rem">
+            <img
+              class="card-img-top"
+              src="https://blog.obilet.com/wp-content/uploads/2018/04/san-rocco-lonca-696x463.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title">San Rocco Lonca Binası</h5>
+              <p class="card-text">
+                Venedik’teki şaheserlerden bir diğeri San Rocco Lonca Binası.
+                Binanın tepesinde ihtişamını yansıtan bir heykel bulunuyor. İç
+                kısmında ince ince işlenmiş detaylar ziyaretçileri adeta
+                büyüleyici nitelike.
+              </p>
+              <a href="#" class="btn btn-primary">Bilet Al!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-5">
+        <div class="row justify-content-center" style="gap: 1.5rem">
+          <div class="card col-10 col-lg-3" style="width: 18rem">
+            <img
+              class="card-img-top"
+              src="https://blog.obilet.com/wp-content/uploads/2018/04/Santa-Maria-de-Miracoli-1-696x464.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Santa Maria de Miracoli</h5>
+              <p class="card-text">
+                Venedik’te evlenmek isteyen Hristiyan çiftlerin sıkça tercih
+                ettiği bir mekan olduğundan bir düğünün çıkışına denk gelmek
+                güzel bir anı olabilir.
+              </p>
+              <a href="#" class="btn btn-primary">Bilet Al!</a>
+            </div>
+          </div>
+          <div class="card col-10 col-lg-3" style="width: 18rem">
+            <img
+              class="card-img-top"
+              src="https://blog.obilet.com/wp-content/uploads/2018/04/San-Simeone-Piccolo-696x464.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title">San Simeone Piccolo</h5>
+              <p class="card-text">
+                Kurşundan yapılmış, binanın kendisi kadar geniş ve oldukça
+                yüksek bir kubbesi olan bu kilise Venedik’e vardığınızda sizi
+                karşılayacak.
+              </p>
+              <a href="#" class="btn btn-primary">Bilet Al!</a>
+            </div>
+          </div>
+          <div class="card col-10 col-lg-3" style="width: 18rem">
+            <img
+              class="card-img-top"
+              src="https://blog.obilet.com/wp-content/uploads/2018/04/Palazzo-Ducale-1-696x519.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Palazzo Ducale</h5>
+              <p class="card-text">
+                Genellikle San Marko Katedrali’ne girmek için oluşan kuyruk bu
+                binanın altına dek uzanıyor, eğer sırada bekleyecekseniz çok
+                sayıdaki kemeri incelemek için bol bol vaktiniz olacak!
+              </p>
+              <a href="#" class="btn btn-primary">Bilet Al!</a>
+            </div>
+          </div>
+          <div class="card col-10 col-lg-3" style="width: 18rem">
+            <img
+              class="card-img-top"
+              src="https://blog.obilet.com/wp-content/uploads/2018/04/burano-adasi-696x465.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Burano Adası</h5>
+              <p class="card-text">
+                Murano gibi Venedik’e bağlı bir diğer ada. Çok daha sakin bir
+                yer. Vaktiniz çoksa biraz kafa dinlemek ve rengarenk evlerin
+                arasındaki dar sokaklarda yürümek başlı başına keyifli.
+              </p>
+              <a href="#" class="btn btn-primary">Bilet Al!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ticket-page" class="ticket-section bg-dark pt-5 pb-5">
+      <div class="container">
+        <h2 class="text-light text-center mb-4">Biletler</h2>
+        <div class="ticket">
+          <img
+            src="https://www.interbustur.com/wp-content/uploads/2016/05/venedik-gondol-turu.jpg"
+            alt="Gondol Turu"
+          />
+          <div class="ticket-content">
+            <h2 class="ticket-title">Romantik Gondol Turu</h2>
+            <p class="ticket-text">
+              Venedik’in büyülü kanallarında geleneksel bir gondolla romantik
+              bir gezinti yapın. San Marco Meydanı ve Rialto Köprüsü gibi ikonik
+              yerlerin keyfini çıkarın.
+            </p>
+            <p class="ticket-price poppins-bold fs-4">€60</p>
+            <a href="#" class="ticket-button">Detaylı Bilgi Al</a>
+          </div>
+        </div>
+
+        <div class="ticket">
+          <img
+            src="https://cdn.getyourguide.com/img/tour/dc76a101d7e60f5b336016023b1715e0d473c1ff9a873e1087e8af71865ec03c.jpg/145.jpg"
+            alt="San Marco Bazilikası"
+          />
+          <div class="ticket-content">
+            <h2 class="ticket-title">San Marco Bazilikası VIP Girişi</h2>
+            <p class="ticket-text">
+              Venedik’in en ünlü yapılarından biri olan San Marco Bazilikası’nı
+              VIP girişi ile beklemeden ziyaret edin. Muhteşem mozaikleri ve
+              altın kaplamaları keşfedin.
+            </p>
+            <p class="ticket-price poppins-bold fs-4">€20</p>
+            <a href="#" class="ticket-button">Detaylı Bilgi Al</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feedback-section">
+      <div class="container feedback-container">
+        <h2 class="text-center mb-5 mt-5">Kullanıcı Yorumları</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card feedback-card">
+              <div class="card-body">
+                <div class="feedback-title">
+                  <img
+                    height="50px"
+                    width="50px"
+                    style="border-radius: 50px"
+                    src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671116.jpg?t=st=1718318267~exp=1718321867~hmac=08d65dde4985e73798ca805169975d337ac5de84b3f704cc421b5554c78b5c55&w=826"
+                    alt=""
+                  />
+
+                  <p class="feedback-author">Ahmet Yılmaz</p>
+                  <p class="feedback-rating">★★★★★</p>
+                </div>
+                <p class="feedback-text">
+                  "Venedik'te geçirdiğimiz günler harikaydı. Özellikle gondol
+                  turu çok romantikti. Kesinlikle tekrar geleceğiz!"
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card feedback-card">
+              <div class="card-body">
+                <div class="feedback-title">
+                  <img
+                    height="50px"
+                    width="50px"
+                    style="border-radius: 50px"
+                    src="https://img.freepik.com/free-psd/3d-render-avatar-character_23-2150611756.jpg?t=st=1718319428~exp=1718323028~hmac=0f8ea728e7c4e1b2542f3e54af8ee5276e6b4715f41bb42af82cb900dcd6fea0&w=826"
+                    alt=""
+                  />
+
+                  <p class="feedback-author">Zeynep Kaya</p>
+                  <p class="feedback-rating">★★★★☆</p>
+                </div>
+                <p class="feedback-text">
+                  "San Marco Bazilikası VIP girişi sayesinde hiç beklemeden
+                  içeri girdik. Mozaikler ve tarihi atmosfer büyüleyiciydi."
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card feedback-card">
+              <div class="card-body">
+                <div class="feedback-title">
+                  <img
+                    height="50px"
+                    width="50px"
+                    style="border-radius: 50px"
+                    src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671134.jpg?t=st=1718319502~exp=1718323102~hmac=bfe5a5272be8d59bcbc1018b926411b12615e257b24495d7a6d04af5cf861f73&w=826"
+                    alt=""
+                  />
+
+                  <p class="feedback-author">Mehmet Çelik</p>
+                  <p class="feedback-rating">★★★★★</p>
+                </div>
+                <p class="feedback-text">
+                  "Tur rehberimiz çok bilgiliydi ve her şey mükemmel organize
+                  edilmişti. Venedik'i keşfetmek harika bir deneyimdi."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact-page" class="bg-dark pb-5">
+      <div class="container">
+        <div class="row">
+          <h2 class="txt-white text-center mt-5">İletişim</h2>
+          <div class="social-medias text-white">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-x-twitter"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
+            <i class="fa-brands fa-github"></i>
+          </div>
+          <div class="copyright">
+            <img
+              src="data:image/png;base64,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"
+            />
+            Venice Journey
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
